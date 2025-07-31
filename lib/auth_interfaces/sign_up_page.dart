@@ -110,9 +110,9 @@ class _SignUpPageState extends State<SignUpPage> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryDark,
         title: Text(
-          'Smart Card System',
+          'Smart Card System - Passenger',
           style: GoogleFonts.inter(
-            fontSize: 24,
+            fontSize: 18,
             color: AppColors.white,
             fontWeight: FontWeight.bold,
           ),

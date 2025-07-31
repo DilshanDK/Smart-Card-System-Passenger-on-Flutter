@@ -38,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryDark, // Use from AppColors
         title: Text(
-          'Smart Card Dashboard',
+          'Smart Card Dashboard - Passenger',
           style: GoogleFonts.inter(
-            fontSize: 24,
+            fontSize: 22,
             color: AppColors.white, // Use from AppColors
             fontWeight: FontWeight.bold,
           ),

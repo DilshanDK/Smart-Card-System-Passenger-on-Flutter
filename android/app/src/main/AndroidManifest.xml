@@ -7,9 +7,9 @@
 
 
     <application
-        android:label="smart_card_app_passenger"
+        android:label="T.A.G - Passenger"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
 
         Add Google Maps API key
         <meta-data

@@ -272,9 +272,9 @@ class _SignInPageState extends State<SignInPage> {
       appBar: AppBar(
         backgroundColor: AppColors.primaryDark,
         title: Text(
-          'Smart Card System',
+          'Smart Card System - Passenger',
           style: GoogleFonts.inter(
-            fontSize: 24,
+            fontSize: 22,
             color: AppColors.white,
             fontWeight: FontWeight.bold,
           ),

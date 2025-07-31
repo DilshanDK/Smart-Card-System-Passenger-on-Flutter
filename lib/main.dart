@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_stripe/flutter_stripe.dart'; // Add this import
 import 'package:smart_card_app_passenger/models/passenger.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_card_app_passenger/services/auth_service.dart';
+import 'package:smart_card_app_passenger/services/tracking_service.dart'; // Add this import
 import 'package:smart_card_app_passenger/wrapper.dart';
 
 import 'firebase_options.dart';
@@ -21,9 +21,9 @@ void main() async {
     developer.log('Firebase initialized successfully', name: 'main');
 
     // Initialize Stripe
-    Stripe.publishableKey = 'pk_test_51R0OwjP15ohPYwKrOvT50NvATSDmhX5VELrALHk4oydanBt88vPnzGo9MZQkvS6ikukyO8ZZLkfkiT2mA1goc3bV00yow3gCmw'; // Replace with your Stripe Publishable Key
-    await Stripe.instance.applySettings();
-    developer.log('Stripe initialized successfully', name: 'main');
+    // Stripe.publishableKey = 'pk_test_51R0OwjP15ohPYwKrOvT50NvATSDmhX5VELrALHk4oydanBt88vPnzGo9MZQkvS6ikukyO8ZZLkfkiT2mA1goc3bV00yow3gCmw'; // Replace with your Stripe Publishable Key
+    // await Stripe.instance.applySettings();
+    // developer.log('Stripe initialized successfully', name: 'main');
 
     runApp(const MyApp());
   } catch (e, stackTrace) {
@@ -38,9 +38,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<Passenger?>.value(
-      initialData: null,
-      value: AuthenticationService().passenger,
+    return MultiProvider(
+      providers: [
+        StreamProvider<Passenger?>.value(
+          initialData: null,
+          value: AuthenticationService().passenger,
+        ),
+        ChangeNotifierProvider<TrackingService>(
+          create: (_) => TrackingService(),
+        ),
+      ],
       child: MaterialApp(
         home: const Wrapper(),
         debugShowCheckedModeBanner: false,
